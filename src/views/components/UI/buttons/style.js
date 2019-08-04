@@ -1,4 +1,4 @@
-import styled from "styled-componets";
+import styled from "styled-components";
 
 export const DefaultButton = styled.button`
   width: 100%;

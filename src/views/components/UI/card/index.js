@@ -1,6 +1,7 @@
 import React from "react";
 
 // COMPONENTS
+// import { DefaultButton } from "../buttons/style";
 import { CardContent, CardBody, CardInfo, Avatar, Details } from "./style";
 
 export const CardProfile = () => {
@@ -11,8 +12,9 @@ export const CardProfile = () => {
         alt="avatar"
       />
       <CardBody>
-        <h2>everton</h2>
-        <h3>chagas</h3>
+        <h2>Paul Fitzgerald</h2>
+        <h3>Pau1fitz</h3>
+        {/* <DefaultButton>edit info</DefaultButton> */}
         <CardInfo>
           <Details>rio de janeiro</Details>
           <Details>everton.paixao16@gmail.com</Details>

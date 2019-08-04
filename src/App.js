@@ -1,13 +1,13 @@
 import React from "react";
 
 import GlobalStyles from "./config/globalStyles";
-import ProfilePage from "./views/pages/profile";
+import Routes from "./routes";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <ProfilePage />
+      <Routes />
     </>
   );
 }
