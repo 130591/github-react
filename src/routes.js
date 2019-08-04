@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 // PAGES COMPONENTS
 import PageProfile from "./views/pages/profile";
 
-const Routes = () => {
+export function Routes() {
   return (
     <BrowserRouter>
       <Switch>
@@ -14,5 +14,3 @@ const Routes = () => {
     </BrowserRouter>
   );
 };
-
-export default Routes;
