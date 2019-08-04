@@ -28,22 +28,23 @@ export const CardBody = styled.div`
     font-weight: 300;
     color: #666666;
     line-height: 24px;
+    margin-bottom: 15px;
     text-transform: capitalize;
   }
 `;
 
 export const CardInfo = styled.ul`
-  height: 60px;
+  height: 25px;
   display: flex;
+  margin-top: 15px;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: red;
+  justify-content: space-between;
 `;
 
 export const Details = styled.li`
   font-size: 1em;
   color: #24292e;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.4px;
 `;
 
