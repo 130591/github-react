@@ -1,14 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const MainContainer = styled.div`
+export const TabPainel = styled.div`
   width: 100%;
-
-  div {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-  }
 `;
 
 export const Aside = styled.aside`

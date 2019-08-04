@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const Content = styled.aside`
-  max-width: 30%;
+  max-width: 22.5%;
 `;
