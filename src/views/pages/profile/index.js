@@ -2,8 +2,9 @@ import React, { Component } from "react";
 
 // COMPONENTS
 import { Header } from "../../components/UI/header";
-import { Container } from "./style";
+import { Container, Layout } from "./style";
 import Profile from "../../components/containers/profile";
+import { UnderlineNav } from "../../components/containers/main";
 
 class ProfilePage extends Component {
   render() {
@@ -11,7 +12,10 @@ class ProfilePage extends Component {
       <>
         <Header />
         <Container>
-          <Profile />
+          <Layout>
+            <Profile />
+            <UnderlineNav />
+          </Layout>
         </Container>
       </>
     );
