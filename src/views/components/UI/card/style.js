@@ -49,3 +49,36 @@ export const Details = styled.li`
 `;
 
 // CARD DEFAULT
+
+export const Box = styled.div`
+  width: 48%;
+  padding: 10px 15px;
+  padding-top: 15px;
+  border-radius: 4px;
+  margin-top: 15px;
+  border: 1px solid #d1d5da;
+`;
+
+export const CardNavBody = styled.div`
+  p {
+    font-size: 0.85em;
+    color: #586069;
+    line-height: 1.5em;
+    font-weight: 400;
+    padding-top: 10px;
+  }
+
+  ul {
+    width: 40%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul li {
+    font-size: 0.85em;
+    color: #586069;
+    line-height: 1.5em;
+    font-weight: 400;
+  }
+`;

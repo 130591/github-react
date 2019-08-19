@@ -2,6 +2,7 @@ import React from "react";
 
 // COMPONENTS
 import { DefaultButton } from "../buttons/style";
+import { Box } from "./style";
 import { CardContent, CardBody, CardInfo, Avatar, Details } from "./style";
 
 export const CardProfile = () => {
@@ -22,4 +23,8 @@ export const CardProfile = () => {
       </CardBody>
     </CardContent>
   );
+};
+
+export const Card = props => {
+  return <Box>{props.children}</Box>;
 };
