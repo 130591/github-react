@@ -1,34 +1,36 @@
 import api from "./index";
 
 class DataLayer {
-  static async overview() {
-    const resp = await api.get("");
+  static async overview(value) {
+    const resp = await api.get(`http://api.github.com/users/${value}`);
 
-    return resp;
+    return resp.json();
   }
 
-  static async repositories() {
-    const resp = await api.get("");
+  static async repositories(value) {
+    const resp = await api.get(`https://api.github.com/users/${value}/repos`);
 
-    return resp;
+    return resp.json();
   }
 
   static async stars() {
     const resp = await api.get();
 
-    return resp;
+    return resp.json();
   }
 
-  static async projects() {
-    const resp = await api.get("");
+  static async projects(value) {
+    const resp = await api.get(`https://api.github.com/users/${value}/projects`,{}, {
+      Header: new Headers()
+    });
 
-    return resp;
+    return resp.json();
   }
 
   static async followers() {
     const resp = await api.get("");
 
-    return resp;
+    return resp.json();
   }
 
   static async following() {
@@ -40,18 +42,3 @@ class DataLayer {
 
 export default DataLayer;
 
-export class DataRepos {
-  static async chooseTabs(tab) {
-    if (tab === "overview") DataLayer.overview();
-
-    if (tab === "repositores") DataLayer.repositories();
-
-    if (tab === "stars") DataLayer.stars();
-
-    if (tab === "projects") DataLayer.projects();
-
-    if (tab === "followers") DataLayer.followers();
-
-    if (tab === "following") DataLayer.following();
-  }
-}
