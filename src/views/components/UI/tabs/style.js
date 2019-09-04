@@ -61,3 +61,8 @@ export const Grid = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
+
+
+export const TabPainel = styled.div`
+  width: 100%;
+`;
