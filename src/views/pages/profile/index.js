@@ -1,25 +1,42 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
 // COMPONENTS
 import { Header } from "../../components/UI/header";
 import { Container, Layout } from "./style";
 import Profile from "../../components/containers/profile";
-import { UnderlineNav } from "../../components/containers/main";
+import TabContainer from "../../components/UI/tabs";
+// CONTEXT
+import { ProfileData } from "./context";
+// SERVICES
+import DataLayer from "../../../core/services/dataLayer";
 
-class ProfilePage extends Component {
-  render() {
-    return (
-      <>
-        <Header />
-        <Container>
-          <Layout>
+const ProfilePage = () => {
+  const [overview, setOverview] = useState({});
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const resp = await DataLayer.overview(130591);
+
+    console.log(resp);
+    setOverview(resp.data);
+  };
+
+  return (
+    <>
+      <Header />
+      <Container>
+        <Layout>
+          <ProfileData.Provider value={overview}>
             <Profile />
-            <UnderlineNav />
-          </Layout>
-        </Container>
-      </>
-    );
-  }
-}
+            <TabContainer />
+          </ProfileData.Provider>
+        </Layout>
+      </Container>
+    </>
+  );
+};
 
 export default ProfilePage;
