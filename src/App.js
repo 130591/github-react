@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import GlobalStyles from "./config/globalStyles";
 import { Routes } from "./routes";
