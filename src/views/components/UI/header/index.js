@@ -6,7 +6,7 @@ import { HeaderContainer, Logo, Nav } from "./style";
 import { Input } from "../form";
 import { NavDropDown } from "./NavDropbox";
 // ICONS
-import logo from "../../../../assets/icons/github-logo.svg";
+import logo from "../../../../assets/icons/Github.svg";
 
 export const Header = () => {
   return (
