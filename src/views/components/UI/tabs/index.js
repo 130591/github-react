@@ -2,10 +2,14 @@ import React from "react";
 import { Tabs, usePanelState } from "@bumaga/tabs";
 
 // COMPONENTS
-import { OverView } from "../../containers/overview";
-import { Repositories } from "../../containers/repositories";
+import Start from '../../containers/starts';
+import Followers from '../../containers/follow';
+import Following from '../../containers/folling';
+import SectionOverview from "../../containers/overview";
+import Repositories from "../../containers/repositories";
+import { Project } from '../../containers/projects'
 import { TabHeader } from "./tabContainer";
-import { TabContent, TitleSection, Grid } from "./style";
+import { TabContent } from "./style";
 
 const Panel = ({ children }) => {
   const isActive = usePanelState();
@@ -13,27 +17,30 @@ const Panel = ({ children }) => {
   return isActive ? <div>{children}</div> : null;
 };
 
-export default () => (
+const TabContainer = props => (
   <TabContent>
     <Tabs>
       <TabHeader />
       <Panel>
-        <TitleSection> Popular repositories </TitleSection>
-        <Grid>
-          <OverView />
-          <OverView />
-          <OverView />
-          <OverView />
-          <OverView />
-          <OverView />
-        </Grid>
+        <SectionOverview />
       </Panel>
       <Panel>
         <Repositories />
       </Panel>
       <Panel>
-        <Repositories />
+        <Project />
+      </Panel>
+      <Panel>
+        <Start />
+      </Panel>
+      <Panel>
+        <Followers />
+      </Panel>
+      <Panel>
+        <Following />
       </Panel>
     </Tabs>
   </TabContent>
 );
+
+export default TabContainer;
