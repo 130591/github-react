@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 // COMPONENTS
 import { DefaultButton } from "../buttons/style";
@@ -17,7 +17,7 @@ export const CardProfile = ({ avatar, name, bio, location, login }) => {
         <CardInfo>
           {location && <Details>{location}</Details>}
           <Details>
-            <Link to="">everton.paixao16@gmail.com</Link>
+            <a href="#">everton.paixao16@gmail.com</a>
           </Details>
         </CardInfo>
       </CardBody>
