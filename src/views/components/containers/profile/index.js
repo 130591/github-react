@@ -3,23 +3,19 @@ import React from "react";
 // COMPONENTS
 import { Content } from "./style";
 import { CardProfile } from "../../UI/card/";
-//  CONTEXT
-import { ProfileData } from "../../../pages/profile/context";
 
-const Profile = () => {
+const Profile = ({ userFullName, username, organizations, location, bio, avatarUrl }) => {
   return (
     <Content>
-      <ProfileData.Consumer>
-        {overview => (
-          <CardProfile
-            name={overview.name}
-            avatar={overview.avatar_url}
-            bio={overview.bio}
-            location={overview.location}
-            login={overview.login}
-          />
-        )}
-      </ProfileData.Consumer>
+      {
+        <CardProfile
+          name={userFullName}
+          avatar={avatarUrl}
+          bio={bio}
+          location={location}
+          login={username}
+        />
+      }
     </Content>
   );
 };
