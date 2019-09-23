@@ -3,29 +3,28 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 // COMPONENTS
-import { YoursRepos, InfoRepors } from "./style";
-import { Loading } from '../../UI/loading';
+import { YoursRepos, InfoRepors } from "../repositories/style";
 import { Input, WrapperInput } from "../../UI/form/input";
 import { TitleCard } from "../../UI/tabs/style";
+import { Loading } from '../../UI/loading';
 
-const Repositories = (props) => {
+const Start = (props) => {
   const [repos, setRepos] = useState([]);
-  const [login, setLogin] = useState(false);
   const [filteredRepos, setFilteredRepos] = useState([]);
   const [filtered, setFiltered] = useState(false);
 
-  const repositories = props.data.viewer ? props.data.viewer.repositories : ''
+  const starred = props.data.viewer ? props.data.viewer.starredRepositories.nodes : ''
 
   useEffect(() => {
     if (props.data && props.data.viewer) {
-      setRepos(props.data.viewer.repositories.edges)
-      setLogin(props.data.viewer.login)
+      setRepos(starred)
     }
-  }, [repositories])
+
+  }, [repos])
 
   const searchRepos = (e) => {
     const repositories = repos.filter(repo => {
-      if (repo.node.name.indexOf(e.target.value) > -1) {
+      if (repo.name.indexOf(e.target.value) > -1) {
         return repo
       } else {
         return null
@@ -37,64 +36,63 @@ const Repositories = (props) => {
   }
 
   const visibleRepos = filtered ? filteredRepos : repos
-
   return (
     <>
       <WrapperInput>
         <Input
-          placeholder="Search repositories..."
+          placeholder="Search starts projects..."
           onChange={e => searchRepos(e)}
         />
       </WrapperInput>
-      {!repositories && <Loading />}
+      {!starred && <Loading />}
       {visibleRepos &&
-        visibleRepos.map(repo => (
+        visibleRepos.map(star =>
           <YoursRepos>
-            <TitleCard>{repo.node.name}</TitleCard>
+            <TitleCard>{star.name}</TitleCard>
             <ul>
-              <li>{repo.node.description}</li>
+              <li>{star.description}</li>
             </ul>
             <InfoRepors>
               <div className="yellowcircule" />
               <span>
-                javascript
+                {star.languages.edges[0] && star.languages.edges[0].node && star.languages.edges[0].node.name ? star.languages.edges[0].name : null}
                 <i className="fa fa-star" />1<i className="fa fa-code-fork" />0
                 <i />
               </span>
               <div className="currentime"> 7 hours ago</div>
             </InfoRepors>
           </YoursRepos>
-        ))}
+        )}
     </>
-  );
-};
-
+  )
+}
 
 export default graphql(gql`
-query {
+{
   viewer {
-    login
-    repositories(first: 100, orderBy: {field: STARGAZERS, direction: DESC}) {
+    starredRepositories(first: 100) {
       totalCount
-      edges {
-        node {
-          name
-          description 
-          languages(first: 1, orderBy: {field: SIZE, direction: DESC}) {
-            edges {
-              node {
-                name
-              }
+      nodes {
+        name
+        nameWithOwner
+        description
+        forkCount
+        updatedAt
+        languages(first: 1, orderBy: {field: SIZE, direction: DESC}) {
+          edges {
+            node {
+              name
             }
-          }  
-          updatedAt
-          forkCount
-          stargazers {
-            totalCount
           }
+        }  
+        owner {
+          login
+        }
+        stargazers {
+          totalCount
         }
       }
     }
   }
 }
-`)(Repositories)
+`)(Start)
