@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router";
+import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 
 // PAGES COMPONENTS
@@ -10,17 +10,11 @@ export function Routes(props) {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
         <Route
           exact
-          path="/"
-          render={props =>
-            !!props.user ? (
-              <Redirect to="/login" />
-            ) : (
-              <Route exact path="/" component={PageProfile} />
-            )
-          }
+          path="/react-github"
+          component={PageProfile}
         />
       </Switch>
     </BrowserRouter>
