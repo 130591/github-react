@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TabList, TabNav } from "./style";
 import { useTabState } from "@bumaga/tabs";
-
-import { DataRepos } from "../../../../core/services/dataLayer";
 
 const Tab = ({ children }) => {
   const { onClick } = useTabState();
@@ -11,39 +9,32 @@ const Tab = ({ children }) => {
 };
 
 export const TabHeader = props => {
-  const [onLoading, setOnLoading] = useState("overview");
-
-  useEffect(() => {
-    const resp = DataRepos.chooseTabs(onLoading);
-    console.log(resp);
-  }, [onLoading]);
-
   return (
     <TabList>
       <Tab>
-        <TabNav>overview</TabNav>
+        <TabNav >overview</TabNav>
       </Tab>
-      <Tab onClick={() => setOnLoading("repositories")}>
+      <Tab >
         <TabNav>
           repositories <span>152</span>
         </TabNav>
       </Tab>
-      <Tab onClick={() => setOnLoading("projects")}>
+      <Tab >
         <TabNav>
           projects <span>0</span>
         </TabNav>
       </Tab>
-      <Tab onClick={() => setOnLoading("stars")}>
+      <Tab >
         <TabNav>
           stars <span>131</span>
         </TabNav>
       </Tab>
-      <Tab onClick={() => setOnLoading("followers")}>
+      <Tab >
         <TabNav>
           followers <span>201</span>
         </TabNav>
       </Tab>
-      <Tab onClick={() => setOnLoading("Following ")}>
+      <Tab >
         <TabNav>
           following <span>14</span>
         </TabNav>

@@ -22,6 +22,7 @@ export const TabNav = styled.div`
   line-height: 1.4em;
   margin-left: 30px;
   text-transform: capitalize;
+  border-bottom: ${ props => props.show ? '1px solid #E36209' : ''};
 
   span {
     color: #586069;
