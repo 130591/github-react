@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 //  COMPONENTS
-import { YoursRepos, InfoRepors } from "./style";
+import { YoursRepos, InfoRepors } from "../repositories/style";
 import { Input, WrapperInput } from "../../UI/form/input";
 import { TitleCard } from "../../UI/tabs/style";
 
 export const Project = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+
+  }, []);
+
   return (
     <>
       <WrapperInput>
