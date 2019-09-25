@@ -7,8 +7,8 @@ export const InputContent = styled.input`
   padding-top: 5px;
   padding-bottom: 5px;
   width: 100%;
-  color: #fff;
   border-radius: 5px;
+  color: #3f4448;
   background-color: #3f4448;
 `;
 

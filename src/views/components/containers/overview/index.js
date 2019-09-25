@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 import { Card } from "../../UI/card";
 import { LinkTitle } from "../../UI/tabs/style";
 import { CardNavBody } from "../../UI/card/style";
+import { ContainerCalendar } from './style';
 import { TitleSection, Grid } from "../../UI/tabs/style";
+import GitHubCalendar from 'github-calendar'
 
 const SectionOverview = (props) => {
   const { viewer } = props.data
+
+  useEffect(() => {
+    if (viewer && viewer.login) {
+      new GitHubCalendar('.calendar', viewer.login)
+    }
+  }, [])
 
   return (
     <>
@@ -27,6 +35,9 @@ const SectionOverview = (props) => {
               />
             )
         )}
+        <ContainerCalendar>
+          <div className="calendar" />
+        </ContainerCalendar>
       </Grid>
     </>
   );

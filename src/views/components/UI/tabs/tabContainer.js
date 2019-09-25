@@ -16,7 +16,7 @@ export const TabHeader = props => {
       </Tab>
       <Tab >
         <TabNav>
-          repositories <span>152</span>
+          repositories <span>15</span>
         </TabNav>
       </Tab>
       <Tab >
@@ -31,12 +31,12 @@ export const TabHeader = props => {
       </Tab>
       <Tab >
         <TabNav>
-          followers <span>201</span>
+          followers <span>99</span>
         </TabNav>
       </Tab>
       <Tab >
         <TabNav>
-          following <span>14</span>
+          following <span>123</span>
         </TabNav>
       </Tab>
     </TabList>
